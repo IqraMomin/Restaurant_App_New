@@ -1,0 +1,17 @@
+.meals{
+    background-color: #383838;
+    width: 90%;
+    max-width: 65rem;
+    color: white;
+    position: relative;
+    border-radius: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: -10rem;
+    padding: 1rem;
+}
+
+.summary h2{
+    font-size: 2rem;
+    margin-top: 0;
+}
