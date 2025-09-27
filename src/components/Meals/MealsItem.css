@@ -1,0 +1,13 @@
+.list-items {
+    margin-bottom: 3rem;
+}
+.price {
+    color: brown;
+    font: inherit;
+    font-weight: bold;
+}
+
+.description {
+    font-style: italic;
+
+}
