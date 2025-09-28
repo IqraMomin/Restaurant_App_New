@@ -1,0 +1,19 @@
+.amount{
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.amount input{
+    border-radius: 7px;
+    border: 1px solid rgb(181, 174, 174);
+    width: 30px;
+    height: 20px;
+    margin-left: 0.75rem;
+    margin-bottom: 0;
+    padding: 0.3rem;
+}
+.amount label{
+    font: inherit;
+    font-weight: bold;
+}
