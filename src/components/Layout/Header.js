@@ -8,7 +8,7 @@ function Header() {
         <React.Fragment>
             <header className='header'>
                 <h1>ReactMeals</h1>
-                <CartButton/>
+                <CartButton />
             </header>
             <div className='bg-div'>
             <img src={bgImg} alt='Great Meals at your service'/>

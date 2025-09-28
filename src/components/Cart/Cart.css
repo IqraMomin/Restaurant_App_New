@@ -16,7 +16,9 @@
   }
   
   .actions {
-    text-align: right;
+    display: flex;
+    justify-content: right;
+    margin: 1rem 0;
   }
   
   .actions button {

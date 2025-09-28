@@ -7,7 +7,6 @@ import Cart from "./components/Cart/Cart";
 function App() {
   return (
   <React.Fragment>
-    <Cart/>
     <Header/>
     <Meals/>
   </React.Fragment>
