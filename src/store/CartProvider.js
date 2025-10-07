@@ -27,6 +27,23 @@ const reducer = (state,action)=>{
             totalAmount:updatedTotalAmount
         }
     }
+    if(action.type==='REMOVE'){
+        const existingItemIndex = state.items.findIndex(item=> item.id===action.id);
+        const existingItem = state.items[existingItemIndex];
+        const totalAmount = state.totalAmount-existingItem.price;
+        let updatedCartItem;
+        if(existingItem.amount===1){
+            updatedCartItem = state.items.filter(item=>item.id!==action.id);
+        }else{
+            const updatedItem = {...existingItem,amount:existingItem.amount-1}
+            updatedCartItem = [...state.items];
+            updatedCartItem[existingItemIndex] = updatedItem;
+        }
+        return {
+            items:updatedCartItem,
+            totalAmount:totalAmount
+        }
+    }
     return defaultCartCtx;
 }
 
@@ -37,7 +54,7 @@ const CartProvider = (props)=>{
         dispatchItem({type:'ADD' ,item:ele});
     }
     const removeItemFromCartHandler = (id)=>{
-        console.log("Removing Item");
+        dispatchItem({type:'REMOVE',id:id});
     }
     const cartContext = {
         items:item.items,
