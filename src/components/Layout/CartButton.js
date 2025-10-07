@@ -8,8 +8,10 @@ function CartButton(props) {
     const cartCtx = useContext(CartContext);
 
     const totalItems = cartCtx.items.reduce((curNum,item)=>{
-        return curNum + item.quantity;
+        return curNum + item.amount;
     },0)
+    
+    //console.log(cartCtx.totalAmount);
 
     return (
         <button className='button' onClick={props.onClick}>

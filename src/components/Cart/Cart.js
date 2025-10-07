@@ -6,13 +6,15 @@ import CartItems from './CartItems';
 
 function Cart(props) {
     const cartCtx = useContext(CartContext);
+    const itemsInCart = cartCtx.items.length>0;
+    const totalAmount =`$${cartCtx.totalAmount.toFixed(2)}`;
 
     const removeItemHandler=(id)=>{
         cartCtx.removeItem(id);
     }
 
     const addItemsHandler=(item)=>{
-        cartCtx.addItems(item)
+        cartCtx.addItems({...item,amount:1});
     }
     const cartItems=<ul className='cart-items'>
         {cartCtx.items.map(item=>{
@@ -21,9 +23,9 @@ function Cart(props) {
             id={item.id}
             price={item.price} 
             name={item.name} 
-            quantity={item.quantity} 
-            onRemove={removeItemHandler}
-            onAdd={addItemsHandler}/>
+            amount={item.amount} 
+            onRemove={removeItemHandler.bind(null,item.id)}
+            onAdd={addItemsHandler.bind(null,item)}/>
         })}
         </ul>
 
@@ -32,11 +34,11 @@ function Cart(props) {
             {cartItems}
             <div className='total'>
                 <span>Total Amount</span>
-                <span>35.62</span>
+                <span>{totalAmount}</span>
             </div>
             <div className='actions'>
                 <button className='button--alt' onClick={props.onCloseCart}>Close</button>
-                <button className='button'>Order</button>
+                {itemsInCart && <button className='button'>Order</button>}
             </div>
 
         </Modal>
